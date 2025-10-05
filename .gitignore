@@ -1,0 +1,6 @@
+client/.env
+server/.env
+
+
+server/firebase-service-account.json
+server/firebase_config.json

@@ -1,0 +1,96 @@
+.dashboard-container-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.dashboard-body {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.main-content {
+  padding: 30px;
+}
+
+.main-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 25px;
+  color: #fff;
+}
+
+.cards {
+  display: flex;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #1a1a1a; 
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.9);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.card p {
+  font-size: 14px;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.btn.blue {
+  background: #007bff;
+}
+.btn.blue:hover {
+  background: #0056b3;
+}
+
+.btn.green {
+  background: #28a745;
+}
+.btn.green:hover {
+  background: #1e7e34;
+}
+
+.btn.purple {
+  background: #6f42c1;
+}
+.btn.purple:hover {
+  background: #4e2d91;
+}

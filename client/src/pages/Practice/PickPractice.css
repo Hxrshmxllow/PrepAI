@@ -1,0 +1,179 @@
+.pick-practice-container-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.pick-practice-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  margin-top: 50px;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.practice-choice-btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 14px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  opacity: 0;               
+  transform: translateY(20px); 
+  animation: slideIn 0.5s forwards; 
+}
+
+.practice-page-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  margin: 0;
+  color: white;
+    margin-top: 4vh;
+}
+
+.practice-page-subtitle {
+  font-size: 16px;
+  color: grey;
+  margin: 0;
+}
+
+.pick-practice-content .practice-choice-btn:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.pick-practice-content .practice-choice-btn:nth-child(2) {
+  animation-delay: 0.3s;
+}
+.pick-practice-content .practice-choice-btn:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.practice-choice-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.choice-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.back-btn {
+  background: transparent;
+  border: 1px solid #555;
+  color: #bbb;
+  padding: 10px 18px;
+  border-radius: 8px;
+  margin-top: 25px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.back-btn:hover {
+  color: white;
+  border-color: #888;
+}
+
+.ai-toggle {
+  margin: 15px 0 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-checkbox {
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  cursor: pointer;
+  gap: 10px;
+  user-select: none;
+  color: #ccc;
+}
+
+.ai-checkbox input {
+  display: none;
+}
+
+.ai-checkbox .checkmark {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #007bff;
+  border-radius: 6px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.ai-checkbox input:checked + .checkmark {
+  background: linear-gradient(135deg, #007bff, #00e0ff);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+}
+
+.ai-checkbox input:checked + .checkmark::after {
+  content: "✓";
+  color: white;
+  font-weight: bold;
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  font-size: 0.9rem;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #000;
+}
+
+.glow-text {
+  color: #00e0ff;
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-shadow:
+    0 0 10px rgba(0, 224, 255, 0.6),
+    0 0 20px rgba(0, 224, 255, 0.4),
+    0 0 40px rgba(0, 224, 255, 0.2);
+  animation: pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; text-shadow: 0 0 15px rgba(0, 224, 255, 0.4); }
+  50% { opacity: 1; text-shadow: 0 0 25px rgba(0, 224, 255, 0.8); }
+}

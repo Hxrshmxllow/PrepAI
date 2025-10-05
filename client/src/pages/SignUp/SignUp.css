@@ -1,0 +1,182 @@
+.login-container-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+.login-page-container{
+    height: 90%;
+    min-width: 45%;
+    border-radius: 2%;
+    padding: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.log-into-providers-container{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    height: 50px;
+    border: 1px solid gray;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.log-into-providers-container:hover{
+    cursor: pointer;
+    border-color: white;
+}
+
+.log-into-providers-container h2{
+    font-size: 15px;
+    margin-left: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    color: white;
+}
+
+.google-icon, .facebook-icon, .apple-icon{
+    margin-left: 30px;
+    font-size: 25px;
+}
+
+.apple-icon{
+    color: white;
+}
+
+.log-into-spotify-text{
+    color: white;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.spotify-icon{
+    color: white;
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.login-page-class-container{
+    min-height: 1px;
+    width: 85%;
+    background-color: rgba(255, 255, 255, 0.154);
+    margin-top: 50px;
+}
+
+.login-page-input-field-container{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50px;
+}
+
+.login-page-input-label{
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+.login-page-input-field{
+    min-height: 47px;
+    width: 100%;
+    padding-left: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 5px;
+    color: white;
+}
+
+.login-page-input-field:focus{
+    outline: none;
+    box-shadow: none
+}   
+
+.login-page-input-field:hover{
+    border-color: white;
+}
+
+.login-page-login-button{
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+    margin-left: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: #007BFF;
+    color: black;
+}
+
+.login-page-login-button:hover{
+    transform: scale(1.05);
+    background-color: #0056b3;
+}
+
+.login-page-form{
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.bad-email-container{
+    text-align: left;
+    align-items: center;
+    color: rgb(215, 104, 104);
+    font-size: 14px;
+    font-weight: 400;
+    padding: 3px;
+    display: flex;
+    gap: 3px;
+    margin-top: 5px;
+  }
+
+.login-page-forgot-password-text{
+    margin-top: 20px;
+    text-decoration: underline;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.login-page-forgot-password-text:hover, .login-page-sign-up-text:hover{
+    cursor: pointer;
+    color: #0056b3;
+}
+
+.login-page-sign-up-container{
+    margin-top: 20px;
+    width: 60%;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.login-page-dont-have-text{
+    font-weight: 400; 
+    color: gray;
+}
+
+.login-page-sign-up-text{
+    font-weight: 500; 
+    text-decoration: underline;
+    color:white;
+    margin-left: 5px;
+}
