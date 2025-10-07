@@ -54,11 +54,12 @@ def log_seen_question():
     logged = log_question(user_id, token, question, isCorrect)
     return jsonify({"status": "success", "message": "Question logged as seen"})
 
-@app.route("/api/get_user_data", methods=["POST"])
+@app.route("/api/get_user_data", methods=["GET"])
 def get_user_data():
     uid = request.args.get("uid")
-    id_token = request.headers.get("Authorization")
-    res = get_user_metrics(uid, id_token)
+    id_token = request.headers.get("Authorization", "").strip()
+    clean_token = id_token.replace("Bearer ", "").strip()
+    res = get_user_metrics(uid, clean_token)
     if res is not None:
         return jsonify(res)
     else:
@@ -73,23 +74,26 @@ def get_question_ai():
     difficulties = {"e": "Easy", "m": "Medium", "h": "Hard"}
     difficulty_code = request.args.get("difficulty")
     difficulty = difficulties.get(difficulty_code, "Medium")
+    qtype = "Open Ended" if request.args.get("type", "") == "spr" else "mcq"
     result = generate_sat_question(
         skill_desc=request.args.get("skill_desc", ""),
         difficulty=difficulty,
         subject=request.args.get("subject", ""),
         area=request.args.get("area", ""),
-        qtype=request.args.get("type", ""),
+        qtype=qtype,
         score_band=request.args.get("score_band", "")
     )
     if result is None:
         return jsonify({"status": "error", "message": "AI generation failed"}), 500
+    if qtype == "Open Ended":
+        result["type"] = "spr"
     print(result)
     answer_options = result.get("answerOptions", "[]")
     if isinstance(answer_options, str):
         result["answerOptions"] = json.loads(answer_options)
     else:
         result["answerOptions"] = answer_options
-    result['correct_answer'] = result['correct_answer'][2]
+    result['correct_answer'] = result['correct_answer'][0]
     return jsonify(result)
 
 

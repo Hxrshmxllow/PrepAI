@@ -318,8 +318,11 @@ def enrich_questions_responses():
         json.dump(reading_mcq, f, indent=2)
 
 def get_user_metrics(uid, id_token):
-    headers = {"Authorization": f"Bearer {id_token}"}
-    url = f"{BASE_URL}/users/{uid}?key={FIREBASE_API}"
+    headers = {
+        "Authorization": f"Bearer {id_token}",
+        "Content-Type": "application/json"
+    }
+    url = f"{BASE_URL}/users/{uid}"
     res = requests.get(url, headers=headers)
     if res.status_code != 200:
         print(f"❌ Firestore fetch failed: {res.status_code} {res.text}")

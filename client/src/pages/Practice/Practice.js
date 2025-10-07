@@ -24,6 +24,11 @@ function Practice() {
   const aiMode = queryParams.get("ai") === "true";
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
+  const difficultyLabels = {
+  e: "Easy",
+  m: "Medium",
+  h: "Hard"
+};
 
   const loadQuestion = async () => {
     try {
@@ -36,7 +41,6 @@ function Practice() {
         else{
           
           let data;
-          alert(aiMode);
           if (aiMode) {
             data = await fetchAIQuestion(subject, area, difficulty, type, userToken);
           } else {
@@ -62,9 +66,9 @@ function Practice() {
         alert("❌ Error fetching data:", err);
       } finally {
         if (initialLoading) {
-          setLoading(false);
           setInitialLoading(false);
         }
+        setLoading(false);
 
       }
   };
@@ -110,6 +114,7 @@ function Practice() {
   const nextQuestion = () => {
     setAnswerIsCorrect(null);
     setSelectedAnswer("");
+    setLoading(true);
     loadQuestion();
   };
 
@@ -124,10 +129,21 @@ function Practice() {
         <div className="practice-container-div">
             <Navbar />
             <div className="practice-center-div">
-                <div className="practice-card" style={{ gridTemplateColumns: question.stimulus ? "1fr 0fr" : "1fr 1fr" }}>
+                <div className="practice-card" style={{ gridTemplateColumns: question.subject !== "math" ? "1fr 0fr" : "1fr 1fr" }}>
                     <div className="left-col" >
                         <div className="meta-row">
-                            <span className="badge">Easy</span>
+                            <span className="badge"style={{
+    backgroundColor:
+      difficulty === "e"
+        ? "#4CAF50" // green
+        : difficulty === "m"
+        ? "#FFC107" // amber
+        : "#F44336", // red for Hard
+    color: "white",
+    padding: "5px 10px",
+    borderRadius: "8px",
+    fontWeight: "bold",
+  }}>{difficultyLabels[difficulty.toLowerCase()] || "Unknown"}</span>
                             <div className="spacer" />
                             <div className="nav-buttons">
                             <div className="time-icon" aria-label="time">3:59</div>
@@ -239,7 +255,7 @@ function Practice() {
                     </div>
 
 
-                    {!stimulus && (
+                    {question.subject === "math" && (
                         <div className="right-col" aria-hidden="false">
                            <Calculator />
                         </div>
